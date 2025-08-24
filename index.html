@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script src="script.js" defer></script>
+	<title>Oblivion Bars</title>
+</head>
+<body>
+	<div class="main-background"></div>
+	<nav>
+		<button type="button" class="nav-button" onclick="toggle_gauge_mode()">Toggle Gauge Mode</button>
+		<button type="button" class="nav-button" onclick="toggle_gauge_stack()">Toggle Gauge Stack</button>
+	</nav>
+	<section>
+		<action-bar>
+			<button type="button" onclick="damage_health(17)">Take <span>17</span> Damage</button>
+			<button type="button" onclick="fortify_health(24, 10, 36)">Fortify Health <span>24 pts</span> <span>10s</span> <span>36 Magicka</span></button>
+		</action-bar>
+		
+		<inventory-bar></inventory-bar>
+		
+		<block class="player-gauges">
+			<gauge-wrapper>
+				<health-bar class="gauge-bar">
+					<div class="gauge-border top"></div>
+					<div class="gauge-shadow-points"></div>
+					<div class="gauge-points">
+						<div class="gauge-gradient"></div>
+						<div class="gauge-gradient"></div>
+					</div>
+					<div class="gauge-border bottom"></div>
+				</health-bar>
+				<gauge-info id="health">
+					<gauge-current></gauge-current>
+					<gauge-number-separator>/</gauge-number-separator>
+					<gauge-capacity></gauge-capacity>
+				</gauge-info>
+			</gauge-wrapper>
+			
+			<gauge-wrapper>
+				<magicka-bar class="gauge-bar">
+					<div class="gauge-border top"></div>
+					<div class="gauge-shadow-points"></div>
+					<div class="gauge-points" style="width: 100%">
+						<div class="gauge-gradient"></div>
+						<div class="gauge-gradient"></div>
+					</div>
+					<div class="gauge-border bottom"></div>
+				</magicka-bar>
+				<gauge-info id="magicka">
+					<gauge-current>100</gauge-current>
+					<gauge-number-separator>/</gauge-number-separator>
+					<gauge-capacity>100</gauge-capacity>
+				</gauge-info>
+			</gauge-wrapper>
+			
+			<gauge-wrapper>
+				<fatigue-bar class="gauge-bar">
+					<div class="gauge-border top"></div>
+					<div class="gauge-shadow-points"></div>
+					<div class="gauge-points" style="width: 100%">
+						<div class="gauge-gradient"></div>
+						<div class="gauge-gradient"></div>
+					</div>
+					<div class="gauge-border bottom"></div>
+				</fatigue-bar>
+				<gauge-info id="fatigue">
+					<gauge-current>100</gauge-current>
+					<gauge-number-separator>/</gauge-number-separator>
+					<gauge-capacity>100</gauge-capacity>
+				</gauge-info>
+			</gauge-wrapper>
+		</block>
+
+		<script>
+			window.addEventListener('DOMContentLoaded', () => {
+				initialize();
+			});
+		</script>
+	</section>
+</body>
+</html>
